@@ -1,10 +1,8 @@
 image: atlassian/default-image:3
 
 pipelines:
-    tags:
-      v*.*.*:
-        - step:
-           script:
-             - git remote add github git@github.com:michailkorenev/Rancher-Catalog-Warehouse.git
-             - git checkout tags/$BITBUCKET_TAG -b sync
-             - git push github sync
+    default:
+      - step:
+          script:
+            - git remote add github git@github.com:michailkorenev/Rancher-Catalog-Warehouse.git
+            - git push github master
